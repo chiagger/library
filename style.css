@@ -1,0 +1,147 @@
+.body {
+    margin:0;
+}
+
+.header {
+    background-color: #f8fafc;
+    color: black;
+    display:flex;
+    flex-direction: column;
+    gap:1rem;
+    padding: 2.5rem;
+    box-shadow: 0px 15px 10px -15px #111;       
+}
+
+.header .top {
+    display:flex;
+    justify-content: space-around;
+}
+
+.header .bottom {
+    display:flex;
+    justify-content: center;
+}
+
+#logo {
+    font-weight: bolder;
+    font-size: 3em;
+}
+
+#newBook {
+    background-color: #e2e8f0;
+    outline:none;
+    border:none;
+    height:fit-content;
+    font-size: 1.2em;
+    padding:1rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    border-radius: 20px;
+}
+
+#newBook:hover {
+    box-shadow: 0px 5px 8px rgba(10, 10, 10, 0.4);
+}
+
+#newBook:active {
+    box-shadow: 0px 5px 5px rgba(10, 10, 10, 0.4);
+
+}
+
+.gridcontainer {
+    display:grid;
+    grid-template-columns: repeat(auto-fill,minmax(250px, 1fr));
+    grid-auto-rows: minmax(200px, 1fr);
+    gap: 2rem;
+}
+
+.gridcontainer > div {
+    background-color: #cbd5e1;
+    padding:2rem;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 0.7rem;
+}
+
+.gridcontainer > div button {
+    outline:none;
+    border:none;
+    font-size: 1em;
+    border-radius: 8px;
+    padding: 0.2rem;
+    padding-right: 0.5rem;
+    padding-left:0.5rem;
+    box-shadow: 0px 2px 10px rgba(10, 10, 10, 0.4);
+}
+
+.gridcontainer > div button:hover {
+    box-shadow: 0px 5px 8px rgba(10, 10, 10, 0.4);
+}
+
+.gridcontainer > div button:active {
+    box-shadow: 0px 5px 5px rgba(10, 10, 10, 0.4);
+}
+
+
+.content {
+    padding: 4rem;
+    padding-left: 15rem;
+    padding-right: 15rem;
+}
+
+/* The popup form - hidden by default */
+.form-popup {
+    display: none;
+    right: 15px;
+    z-index: 9;
+  }
+  
+/* Add styles to the form container */
+.form-container {
+    background-color: #e2e8f0;
+    max-width: 300px;
+    padding: 1rem;
+    border-radius: 10px;
+}
+  
+/* Full-width input fields */
+.form-container input[type=text] {
+    border-radius: 10px;
+    width: 90%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #f1f5f9;
+}
+
+.form-container input[type=checkbox] {
+    padding: 15px;
+}
+  
+  /* When the inputs get focus, do something */
+.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+    background-color:#f8fafc;
+    outline: none;
+}
+  
+  /* Set a style for the submit/login button */
+  .form-container .btn {
+    margin-top:10px;
+    border-radius: 10px;
+    background-color: #04AA6D;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom:10px;
+    opacity: 0.8;
+  }
+  
+  /* Add some hover effects to buttons */
+  .form-container .btn:hover, .open-button:hover {
+    opacity: 1;
+  }

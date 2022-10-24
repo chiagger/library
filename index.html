@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Library</title>
+</head>
+
+<body>
+    <div class="header">
+        <div class="top">
+            <div id="logo">Personal Library</div>
+            <button id="newBook" onclick="openForm()">+ Add Book</button>
+        </div>
+        <div class="bottom">
+            <div class="form-popup" id="myForm">
+                <form action="/action_page.php" class="form-container">
+                    <label for="title"><b>Title</b></label>
+                    <input type="text" placeholder="Harry Potter..." name="title" required>
+                    <label for="author"><b>Author</b></label>
+                    <input type="text" placeholder="J.K.Rowling..." name="author" required>
+                    <label for="pages"><b>Number of Pages</b></label>
+                    <input type="text" placeholder="394..." name="pages" required>
+                    <input type="checkbox" id="read" name="read" value="false">
+                    <label for="read">Already read?</label>
+
+                    <button type="submit" class="btn" id="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="gridcontainer">
+            
+        </div>
+    </div>
+</body>
+
+</html>
