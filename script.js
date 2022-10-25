@@ -1,6 +1,6 @@
 let myLibrary = [];
 
-const harryPotter= new Book("Harry Potter","J.K. Rowling","394",false);
+const harryPotter = new Book("Harry Potter", "J.K. Rowling", "394", false);
 myLibrary.push(harryPotter);
 
 const gridContainer = document.querySelector(".gridcontainer");
@@ -8,7 +8,7 @@ const gridContainer = document.querySelector(".gridcontainer");
 function removeCard(e) {
     let card = e.target.parentNode;
     gridContainer.removeChild(card);
-    let i=0;
+    let i = 0;
     for (let element of myLibrary) {
         if (e.target.parentNode.firstChild.textContent === element.title) {
             myLibrary.splice(i, 1);
@@ -19,44 +19,44 @@ function removeCard(e) {
 
 function changeRead(e) {
     let readProperty = e.target.parentNode.lastChild;
-   if (e.target.textContent === "read") {
+    if (e.target.textContent === "read") {
         e.target.textContent = "not read";
         e.target.style.backgroundColor = "#f87171";
         readProperty = false;
-   } else {
+    } else {
         e.target.textContent = "read";
-        e.target.style.backgroundColor="#22c55e";
+        e.target.style.backgroundColor = "#22c55e";
         readProperty = true;
-   }
-   console.log(readProperty);
+    }
+    console.log(readProperty);
 }
 
-function makeCard(title,author,pages,read) {
+function makeCard(title, author, pages, read) {
     const divCard = document.createElement("div");
 
     const rmBtn = document.createElement("button");
     rmBtn.classList.add("rmBtn");
-    rmBtn.textContent="Remove";
+    rmBtn.textContent = "Remove";
 
     const divTitle = document.createElement("div");
-    divTitle.textContent=title;
+    divTitle.textContent = title;
     divTitle.style.fontWeight = "bold";
     divTitle.style.fontSize = "1.5rem";
     const divAuthor = document.createElement("div");
-    divAuthor.textContent=author;
-    divAuthor.style.fontStyle="italic";
+    divAuthor.textContent = author;
+    divAuthor.style.fontStyle = "italic";
     const divPages = document.createElement("div");
-    divPages.textContent=pages;
+    divPages.textContent = pages;
     const readBtn = document.createElement("button");
     readBtn.classList.add("readBtn");
-    if (read===true) {
-        readBtn.textContent="read"
-        readBtn.style.backgroundColor="#22c55e";
+    if (read === true) {
+        readBtn.textContent = "read"
+        readBtn.style.backgroundColor = "#22c55e";
     } else {
-        readBtn.textContent="not read"
-        readBtn.style.backgroundColor="#f87171";
+        readBtn.textContent = "not read"
+        readBtn.style.backgroundColor = "#f87171";
     }
-    
+
     divCard.appendChild(divTitle);
     divCard.appendChild(divAuthor);
     divCard.appendChild(divPages);
@@ -73,44 +73,38 @@ function makeCard(title,author,pages,read) {
 }
 
 for (const thisbook of myLibrary) {
-    makeCard(thisbook.title,thisbook.author,thisbook.pages,thisbook.read);
+    makeCard(thisbook.title, thisbook.author, thisbook.pages, thisbook.read);
 }
 
-function Book(title,author,pages,read) {
-    this.title=title;
-    this.author=author;
-    this.pages=pages+" pages";
-    this.read=read;
+function Book(title, author, pages, read) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages + " pages";
+    this.read = read;
 }
 
-function addBookToLibrary() {
-    let title = prompt("Title: ");
-    let author = prompt("Author: ");
-    let pages = prompt("Nr. of pages: ");
-    let read = prompt("Read? y/n ");
-   
-   
+function addBookToLibrary(e) {
+    e.preventDefault();
+    const title = document.getElementById("title").value;
+    const author = document.getElementById("author").value;
+    const pages = document.getElementById("pages").value;
+    const read = document.getElementById("read").value;
 
-    let booleanRead;
-    if (read==="y") {
-        booleanRead=true;
-    } else if (read === "n") {
-        booleanRead = false;
-    } else {
-        alert("error");
-    }
-    const newBook= new Book(title,author,pages,booleanRead);
+    const newBook= new Book(title,author,pages,read);
     myLibrary.push(newBook);
-    makeCard(title,author,pages,booleanRead);
+    makeCard(title,author,pages,read);
+    document.getElementById("myForm").style.display = "none";
 }
 
 const newBookBtn = document.getElementById("newBook");
-newBookBtn.addEventListener('click', addBookToLibrary);
 
 function openForm() {
     document.getElementById("myForm").style.display = "block";
-  }
-  
-  function closeForm() {
-    document.getElementById("myForm").style.display = "none";
-  }
+}
+
+
+
+
+const submitBtn = document.getElementById("submit");
+submitBtn.addEventListener('click', addBookToLibrary);
+
