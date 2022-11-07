@@ -158,6 +158,12 @@ function validate() {
         pages.style.color = "red";
         valid = false;
     }
+    if (isNaN(pages.value) === true) {
+        pages.validity.valid = "false";
+        pages.value = "Must be a number!";
+        pages.style.color = "red";
+        valid = false;
+    }
     if (valid === true) {
         addBookToLibrary();
     }
